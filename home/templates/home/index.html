@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Tutorial </title>
-
-</head>
-<body>
+{% extends "base.html" %}
+{% block start %}
     <h1>This is the first html Page Rendering by Django</h1>
-    <h2>It makes me happy that how i can easily </h2>
-    <h2>Render these html pages with the help of Django</h2>
-    <hr/>
-    <p>Adding a Horizontal ruler is good for the seeing that does it works or not</p>
-    <br/>
-    <br/>
-    <p>yeah added some br tags too....</p>
-</body>
-</html>
+
+
+    <!-- {{peoples}} -->
+    <table class="container">
+      <tr>
+        <th>S. No.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Can Vote</th>
+      </tr>
+      {% for people in peoples %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td >
+            {% if people.age >= 18 %}
+                    <p style="color:white;background-color:rgb(121, 237, 121);">Yes</p>
+                {% else %}
+                <p style="color:white;background-color: red;">No</p>
+                {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div class="container">
+        {{text|truncatechars:70}}
+        <br/>
+        {% if "cucumber" in vegetables %}
+            <p>Yes Avilable</p>
+        {% elif "Tomato" in vegetables %}
+        <p>Yes Tomatoes are Avilable</p>
+        {% else %}
+        <p>Neither tomatoes nor cucumber are Avilable</p>            
+        {% endif %}
+    </div>
+    {% endblock %}
