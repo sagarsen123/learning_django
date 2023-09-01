@@ -9,6 +9,10 @@ class Student(models.Model):
     # image = models.ImageField()
     # file = models.FileField()
      
+ 
+class Car(models.Model):
+    car_name = models.CharField(max_length=100)
+    speed = models.IntegerField(default=50)
 
-class Product(models.Model):
-    pass
+    def __str__(self):
+        return str(self.car_name)
