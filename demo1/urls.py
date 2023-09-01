@@ -29,6 +29,7 @@ urlpatterns = [
     path('about/', about, name="about"),
     path('success-page/', success_page, name="success_page"),
     path('delete-receipe/<id>/',delete_receipe, name="delete_receipe"),
+    path('update-receipe/<id>/',update_receipe, name="update_receipe"),
     path('admin/', admin.site.urls),
 ]
 
