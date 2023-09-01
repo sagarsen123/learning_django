@@ -2,7 +2,7 @@
 {% block start %}
 <h2 class="text-center"> Welcome to the Receipe  page </h2>
 <div class="container mt-5">
-        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+          <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <h2> Add Receipe</h2><hr/>
             <div class="mb-3">
@@ -19,5 +19,30 @@
               </div>
             <button type="submit" class="btn btn-success">Add Receipe</button>
           </form>
+
+          {% comment %} {{receipes}}  {% endcomment %}
+          <table class="table mt-5 shadow-lg">
+            <thead>
+              <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">Receipe</th>
+                <th scope="col">Desciption</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for receipe in receipes %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{receipe.receipe_name}}</td>
+                <td>{{receipe.receipe_description | truncatechars:100}}</td>
+                <td class="d-flex justify-center align-items-center"><img  src="/media/{{receipe.receipe_image}}" width="200" height="200"></td>
+                <td><a href="/delete-receipe/{{receipe.id}}/" class="btn btn-danger">Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
     </div>
 {% endblock %}
