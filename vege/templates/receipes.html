@@ -4,8 +4,7 @@
   <form
     class="col-6 mx-auto card p-3 shadow-lg"
     method="post"
-    enctype="multipart/form-data"
-  >
+    enctype="multipart/form-data">
     {% csrf_token %}
     <h2>Add Receipe</h2>
     <hr />
@@ -43,8 +42,8 @@
           <label for="exampleInputPassword1" class="form-label text-center"
             >Search Receipe</label
           >
-          <textarea
-            name="search_receipe" type="text" class="form-control" id="exampleInputPassword1"></textarea>
+          <input
+            name="search_receipe" type="text" class="form-control" id="exampleInputPassword1"></input>
         </div>
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-primary">Search Receipe</button>
@@ -75,8 +74,7 @@
           <img
             src="/media/{{receipe.receipe_image}}"
             width="200"
-            height="200"
-          />
+            height="200"/>
         </td>
         <td>
           <a href="/delete-receipe/{{receipe.id}}/" class="btn btn-danger m-2"
