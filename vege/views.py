@@ -64,6 +64,7 @@ def update_receipe(request, id):
     return render(request, 'update_receipes.html', context)
     # return HttpResponse("This is the update Page")
 
+ 
 def logout_page(request):
     logout(request)
     return  redirect('/login/')
