@@ -41,6 +41,9 @@ def delete_receipe(request, id):
     return redirect('/receipes/')
     # return HttpResponse({/id})
 
+
+    
+
 @login_required(login_url="/login/")
 def update_receipe(request, id):
     queryset = Receipe.objects.get(id = id)
